@@ -1,0 +1,14 @@
+<h2>Menu</h2>
+
+<div class="wrapper">
+  <%= link_to 'Back', root_path %><br>
+  <%= link_to 'Edit', edit_resume_path(@resume) %>
+  <hr>
+  <h4>Resume</h4>
+  <% if  @resume.download_file.present? %>
+    <iframe src=<%= @resume.download_file %> width="600" height="780" style="border: none;"> </iframe>
+  <% else %>
+  <% end %>
+</div>
+
+<%= link_to "Download", download_resume_path(@resume), "data-turbolinks" => false %>

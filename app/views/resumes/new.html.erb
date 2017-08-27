@@ -1,0 +1,22 @@
+<h2>Upload Resume</h2>
+
+<%= form_for (@resume) do |f| %>
+  <% if @resume.errors.any? %>
+  <h2><%= pluralize(@resume.errors.count, "error") %> prevent this file from saving:</h2>
+  <ul>
+    <% @resume.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+  <% end %>
+  
+  <div class="wrapper">
+    <%= link_to 'Back', root_path %>
+    <hr>
+    <h4>Resume</h4>
+      <%= f.file_field :download_file %>
+    <br>
+    <%= f.submit 'Submit' %>
+  </div>
+  
+<% end %>

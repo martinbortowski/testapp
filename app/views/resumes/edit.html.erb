@@ -1,0 +1,28 @@
+<h2>Edit Resume</h2>
+
+<%= form_for @resume do |f| %>
+  <% if @resume.errors.any? %>
+  <h2><%= pluralize(@resume.errors.count, "error") %> prevent this file from saving:</h2>
+  <ul>
+    <% @resume.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+  <% end %>
+  
+  <div class="wrapper">
+    <%= link_to 'Back', @resume %>
+    <hr>
+    <% if  @resume.download_file.present? %>
+      <iframe src=<%= @resume.download_file %> width="600" height="780" style="border: none;"> </iframe>
+    <% else %>
+    <% end %>
+    <br>
+    <h4>Change Resume</h4>
+    <%= f.file_field :download_file %>
+    <br>
+    <%= f.submit 'Submit' %>
+    <br><br><br>
+    <%= link_to "Delete", resume_path(resume_id: @resume.id), method: :delete, data: {confirm: 'Are you sure?'} %>
+  </div>
+<% end %>
