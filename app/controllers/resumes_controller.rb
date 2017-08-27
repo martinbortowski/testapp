@@ -40,7 +40,7 @@ class ResumesController < ApplicationController
   end
   
   def download
-    send_data @resume, type: "application/pdf", disposition: "attachment"
+    send_file @resume, type: "application/pdf", disposition: "attachment"
   end
   
   private

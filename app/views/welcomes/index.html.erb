@@ -1,5 +1,20 @@
+<% if user_signed_in? %>
+    <%= link_to "Logout", destroy_user_session_path, method: :delete %><br>
+    <%= link_to "Resume",new_resume_path %>
+<% else %>
+    <%= link_to "Login", new_user_session_path %>
+<% end %>
+<br><br><br>
 <h2>Static PDF File</h2>
 <%= link_to 'Download', welcomes_download_pdf_url, "data-turbolinks" => false %>
-
+<br>
 <h2>Dynamic PDF File</h2>
-<%= link_to "Download", download_welcome_path(current_user.resume), "data-turbolinks" => false %>
+<% if Resume.first.present? %>
+    <%= link_to "Download", download_welcome_path(Resume.first), "data-turbolinks" => false %>
+<% end %>
+<br><br><br>
+<%= t('title_html') %>
+<%= link_to "Language", language_path %>
+<br><br><br>
+<p><%= link_to "EN", root_path(locale: 'en') %></p>
+<p><%= link_to "DE", root_path(locale: 'de') %></p>

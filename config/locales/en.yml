@@ -21,3 +21,6 @@
 
 en:
   hello: "Hello world"
+  title_html: <h1>Language Test</h1>
+  sentence_html: <h1>Hi how are u?</h1>
+  back: "Back"
