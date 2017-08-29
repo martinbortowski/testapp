@@ -40,10 +40,14 @@ class ResumesController < ApplicationController
   end
   
   def download
-    send_file @resume, type: "application/pdf", disposition: "attachment"
+    send_file resume_file_location(@resume), type: "application/pdf", disposition: "attachment"
   end
   
   private
+  
+  def resume_file_location(resume)
+    "#{Rails.root}/public#{resume.download_file}"
+  end
   
   def resume_params
     params.require(:resume).permit( :user_id, :download_file, :remove_download_file)

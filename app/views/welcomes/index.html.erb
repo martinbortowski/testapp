@@ -13,6 +13,17 @@
     <%= link_to "Download", download_welcome_path(Resume.first), "data-turbolinks" => false %>
 <% end %>
 <br><br><br>
+
+
+
+<br><br><br>
+<% if I18n.locale == :de %>
+    <h1>Deutsch</h1>
+<% else %>
+    <h1>English</h1>
+<% end %>
+
+<br><br><br>
 <%= t('title_html') %>
 <%= link_to "Language", language_path %>
 <br><br><br>
