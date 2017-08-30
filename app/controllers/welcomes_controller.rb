@@ -1,6 +1,7 @@
 class WelcomesController < ApplicationController
    
   def index
+    @instagram = Instagram.user_recent_media("259624044", {:count => 6})
   end
   
   def language

@@ -8,14 +8,14 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
-gem 'social-share-button'
-gem 'friendly_id'
 gem 'will_paginate'
 gem 'devise'
-gem 'mail_form'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog'
+gem 'unf_ext', '0.0.7.4'
+gem 'twitter'
+gem 'instagram', :git => 'git://github.com/Instagram/instagram-ruby-gem.git'
 
 group :development, :test do
    gem 'sqlite3', '1.3.9'
@@ -23,6 +23,7 @@ group :development, :test do
    gem 'web-console', '~> 2.0'
    gem 'spring', '1.1.3'
    gem 'pry-rails'
+   gem 'dotenv-rails'
 end
 
 group :production do
