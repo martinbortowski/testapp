@@ -1,0 +1,30 @@
+<div class="header_small">
+    <h2 class="heading_small">Projects</h2>
+</div>
+
+<div class="projects_wrapper">
+  <% if user_signed_in? %>
+    <%= link_to "New Album", new_album_path, class: "button" %>
+    <hr class="line">
+  <% end %>
+</div>
+
+<div class="container">
+  <div class="row">
+    <% @albums.each do |album| %>
+      <%= link_to album do %>
+        <div class="col-md-4 col-sm-6 col-12">
+            <div class="album_element">
+              <h2 class="album_title"><%= album.title %></h2>
+              <p class="album_time"><%= album.created_at.strftime("%d.%m.%Y") %></p>
+              <div class="album_image">
+                  <%= image_tag album.preview_image.url(:thumb) if album.preview_image? %>  
+              </div>
+            </div>
+        </div>
+      <% end %>  
+    <% end %>
+  </div>
+</div>
+<br>
+<br>

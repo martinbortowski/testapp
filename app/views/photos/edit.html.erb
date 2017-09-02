@@ -1,0 +1,22 @@
+<%= form_for [@album, @photo], html: { :multipart => true } do |f| %>
+  <% if @photo.errors.any? %>
+  <h2><%= pluralize(@photo.errors.count, "error") %> prevent this photo from saving:</h2>
+  <ul>
+    <% @photo.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+  <% end %>
+  
+  <div class="blog_edit_wrapper">
+    <%= link_to 'Back', @album, class: "gallery_button" %>
+    <hr>
+    <%= f.label :image %><br>
+    <br>
+    <div class="wrapper_filefield">
+      <%= f.file_field :gallery_image, multiple: true %>
+      <br>
+    </div>
+    <%= f.submit 'Submit', class: "gallery_button" %>
+  </div>
+<% end %>

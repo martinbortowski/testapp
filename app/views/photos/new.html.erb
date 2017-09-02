@@ -1,0 +1,34 @@
+<div class="header_small">
+    <h2 class="heading_small">Upload</h2>
+</div>
+
+<%= form_for [@album, @photo], html: { :multipart => true } do |f| %>
+  <% if @photo.errors.any? %>
+  <h2><%= pluralize(@photo.errors.count, "error") %> prevent this photo from saving:</h2>
+  <ul>
+    <% @photo.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+  <% end %>
+  
+  <div class="wrapper">
+    <%= link_to 'Back', @album, class: "button" %>
+    <hr>
+  </div>
+  <div class="edit_wrapper">
+    <h4>Images</h4>
+    <div class="wrapper_filefield">
+      <%= f.file_field :gallery_image, multiple: true, name: "photo[gallery_image]" %>
+    </div>
+    <br>
+    <%= f.submit 'Submit', class: "button" %>
+  </div>
+<% end %>
+
+<script id="template-upload" type="text/x-tmpl">
+<div class="upload">
+	{%=o.name%}
+	<div class="progress"><div class="bar" style="width: 0%"></div></div>
+</div>
+</script>

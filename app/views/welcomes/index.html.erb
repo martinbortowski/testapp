@@ -4,6 +4,8 @@
 <% else %>
     <%= link_to "Login", new_user_session_path %>
 <% end %>
+<br>
+<%= link_to "Albums", albums_path %>
 <br><br><br>
 <h2>Static PDF File</h2>
 <%= link_to 'Download', welcomes_download_pdf_url, "data-turbolinks" => false %>
@@ -30,12 +32,13 @@
 <p><%= link_to "EN", root_path(locale: 'en') %></p>
 <p><%= link_to "DE", root_path(locale: 'de') %></p>
 <br><br><br><br><br><br><br><br><br>
+
 <ul>
-	<% TwitterApi.our_public_tweets.each do |tweet| %>
-		<li><%= parsed_tweet tweet %></li>
-	<% end %>
+	<%# TwitterApi.our_public_tweets.each do |tweet| %>
+		<li><%#= parsed_tweet tweet %></li>
+	<%# end %>
 </ul>
 <br><br><br><br><br><br><br><br><br>
-<% @instagram.each do |instagram| %>
-    <%= image_tag instagram.images.standard_resolution.url %>
-<% end %>
+<%# @instagram.each do |instagram| %>
+    <%#= image_tag instagram.images.standard_resolution.url %>
+<%# end %>

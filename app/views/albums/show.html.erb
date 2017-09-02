@@ -1,0 +1,25 @@
+<div class="projects_wrapper">
+  <% if user_signed_in? %>
+    <%= link_to "Edit Album", edit_album_path, class: "button" %>
+    <%= link_to "Delete Album", album_path(@album), class: "button", method: :delete, data: { confirm: "Bist du dir sicher?" } %>
+    <%= link_to 'Upload Photos', new_album_photo_path(@album), class: "button" %>
+    <%= link_to 'Back', albums_path, class: "button" %>
+    <hr class="line">
+  <% end %>
+  <h2><%= @album.title %></h2>
+  <p class="album_description"><%= @album.description %></p> 
+  <hr class="line">
+</div> 
+<div class="outer_wrapper_gallery">
+  <div class="inner_wrapper_gallery">
+    <div class="masonry_container popup-gallery hover">
+      <% @album.photos.each do |photo| %>
+        <%= link_to image_path photo.gallery_image do %>
+          <div class="image_element figure"><%= image_tag(photo.gallery_image, alt: "gallery image") %></div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<br>
+<br>

@@ -16,6 +16,7 @@ gem 'fog'
 gem 'unf_ext', '0.0.7.4'
 gem 'twitter'
 gem 'instagram', :git => 'git://github.com/Instagram/instagram-ruby-gem.git'
+gem 'jquery-fileupload-rails'
 
 group :development, :test do
    gem 'sqlite3', '1.3.9'

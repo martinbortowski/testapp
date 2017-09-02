@@ -1,0 +1,14 @@
+<div class="blog_background_wrapper">
+    <%= image_tag("next-bg.jpg", alt: "blog background", :class => "blog_background") %>
+    <div class="blog_heading_wrapper">
+        <h2 class="heading_blog">GALLERY</h2>
+    </div>
+</div>
+<section class="blog">
+    <div class="blog_inner_wrapper">
+        <div class="post_show_image_wrapper">
+            <%= image_tag(@photo.gallery_image, class: "index_main_image") if @photo.gallery_image? %>
+        </div>
+        <%= link_to 'Edit', edit_album_photo_path(@album, @photo) %>
+    </div>
+</section>

@@ -6,8 +6,8 @@ class TwitterApi
 
 	def self.client
 		@client ||= Twitter::REST::Client.new do |config|
-	      config.consumer_key        = "Dn413eSGEzulheiXNWxfZ44Eb"
-	      config.consumer_secret     = "kbuddDiMADE7Do1qklrWJ7xOB6Eo895qHafbx5ag5M8x3OP2X5"
+	      config.consumer_key        = "XXXXXXXXX"
+	      config.consumer_secret     = "XXXXXXXXX"
 		end
 	end
 	

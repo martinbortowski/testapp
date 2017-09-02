@@ -1,0 +1,33 @@
+<div class="header_small">
+    <h2 class="heading_small">New</h2>
+</div>
+
+<div class="wrapper">
+  <%= link_to 'Back', albums_path, class: "button" %>
+  <hr>
+</div>
+
+<div class="edit_wrapper">
+  <%= form_for @album do |f| %>
+    <div class="form_wrapper">
+      <h4>Title</h4>
+      <div class="placeholder_wrapper">
+        <%= f.text_field :title, class: "title_form" %>
+      </div> 
+    </div>
+    <div class="form_wrapper">
+      <h4>Description</h4>
+      <div class="placeholder_wrapper">
+        <%= f.text_area :description, class: "description_form" %>
+      </div>
+    </div>
+    <div class="wrapper_filefield">
+      <h4>Album Cover Image</h4>
+      <%= f.file_field :preview_image %>
+    </div>
+    <br>
+    <%= f.submit 'Create Album', class: "button" %>
+  <% end %>
+  <br>
+  <br>
+</div>

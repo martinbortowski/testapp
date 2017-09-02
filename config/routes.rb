@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   scope "(:locale)", locale: /en|de/ do
     root 'welcomes#index'
     devise_for :users
@@ -12,6 +13,10 @@ Rails.application.routes.draw do
     
     resources :resumes do
       get :download, on: :member
+    end
+    
+    resources :albums do
+      resources :photos
     end
     
     get '*path' => redirect('/')

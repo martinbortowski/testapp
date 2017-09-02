@@ -1,0 +1,63 @@
+<div class="header_small">
+    <h2 class="heading_small">Edit</h2>
+</div>
+
+<%= form_for @album do |f| %>
+  <% if @album.errors.any? %>
+  <h2><%= pluralize(@album.errors.count, "error") %> prevent this post from saving:</h2>
+  <ul>
+    <% @album.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+  <% end %>
+  
+  <div class="projects_wrapper">
+    <%= link_to 'Back', @album, class: "button" %>
+    <div class="line_wrapper">
+      <hr class="line">
+    </div>
+  </div>
+  
+  <div class="edit_wrapper">
+    <div class="form_wrapper">
+      <h4>Title</h4>
+      <div class="placeholder_wrapper">
+        <%= f.text_field :title, class: "title_form" %>
+      </div>
+    </div>
+    <div class="form_wrapper">
+      <h4>Description</h4>
+      <div class="placeholder_wrapper">
+        <%= f.text_area :description, class: "description_form" %>
+      </div>        
+    </div>
+    <div class="form_wrapper">
+      <h4>Album Cover Image</h4>
+      <%= image_tag(@album.preview_image.url, class: "img_preview") if @album.preview_image? %>
+      <%= f.file_field :preview_image %>
+      <div class="wrapper_filefield">
+        <%= f.check_box :remove_preview_image %>
+        <p class="checkbox_text">Remove Album Cover Image</p>
+      </div>
+    </div>
+    <%= f.submit 'Submit', class: "button" %>
+  </div>
+<% end %>
+<br>
+<hr>
+
+<div class="wrapper">
+    <div class="masonry">
+        <% @album.photos.each do |photo| %>
+        <div class="item">
+            <div class="popup-gallery">
+                <%= link_to image_path photo.gallery_image  do %>
+                    <%= image_tag(photo.gallery_image) %>
+                <% end %>
+            </div>
+            <%= link_to "Delete", album_photo_path(album_id: @album.id, photo_id: photo.id), :class => 'delete_text', method: :delete, data: {confirm: 'Are you sure?'} %>
+        </div>
+        <% end %>
+    </div>
+</div>
